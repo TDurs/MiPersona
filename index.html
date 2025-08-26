@@ -37,7 +37,7 @@
     <!-- Sidebar lateral derecho -->
     <aside id="sidebar">
         <ul>
-            <li><a href="#persona"><i class="fas fa-user"></i> Mi Persona</a></li>
+            <li><a href="#persona"><i class="fas fa-user">≡</i> Mi Persona</a></li>
             <li><a href="#inspiraciones"><i class="fas fa-lightbulb"></i> Inspiraciones</a></li>
             <li><a href="#hobbys"><i class="fas fa-gamepad"></i> Hobbys</a></li>
             <li><a href="#favoritas"><i class="fas fa-heart"></i> Favoritas</a></li>
@@ -203,24 +203,24 @@
             caption.querySelector("p").textContent = data[i].texto;
         }
 
-        // ⏳ intervalo de rotación
+        // intervalo de rotación
         let intervalo = setInterval(() => {
             indice = (indice + 1) % data.length;
             mostrarImagen(indice);
         }, 5000);
 
-        // 👉 click en el figcaption (no en la imagen)
+        // click en el figcaption (no en la imagen)
         caption.addEventListener("click", () => {
             indice = (indice + 1) % data.length;
             mostrarImagen(indice);
         });
 
-        // 🛑 detener rotación cuando el mouse está sobre el caption
+        // detener rotación cuando el mouse está sobre el caption
         caption.addEventListener("mouseenter", () => {
             clearInterval(intervalo);
         });
 
-        // ▶️ reanudar rotación al salir el mouse
+        // reanudar rotación al salir el mouse
         caption.addEventListener("mouseleave", () => {
             intervalo = setInterval(() => {
                 indice = (indice + 1) % data.length;
