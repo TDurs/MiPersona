@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Proyecto</title>
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container" id="header-content">
+            <div id="logo">
+                <h1>Mi Proyecto</h1>
+            </div>
+            <ul class="menu menu-main">
+                <li><a href="#persona">Mi persona</a></li>
+                <li><a href="#inspiraciones">Inspiraciones</a></li>
+                <li><a href="#hobbys">Hobbys</a></li>
+                <li><a href="#favoritas">Favoritas</a></li>
+                <li><a href="#main-footer">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="caratula" class="padded">
+        <div class="container">
+            <p class="display-1">Universidad <br>Nacional de San Marcos</p>
+            <p class="texto-importante">Bienvenido a mi espacio personal</p>
+            <a href="#persona" class="btn">Conóceme más</a>
+        </div>
+    </section>
+
+    <!-- Botón flotante para abrir sidebar -->
+    <button id="toggleSidebar"><i class="fas fa-bars"></i></button>
+
+    <!-- Sidebar lateral derecho -->
+    <aside id="sidebar">
+        <ul>
+            <li><a href="#persona"><i class="fas fa-user"></i> Mi Persona</a></li>
+            <li><a href="#inspiraciones"><i class="fas fa-lightbulb"></i> Inspiraciones</a></li>
+            <li><a href="#hobbys"><i class="fas fa-gamepad"></i> Hobbys</a></li>
+            <li><a href="#favoritas"><i class="fas fa-heart"></i> Favoritas</a></li>
+            <li><a href="#main-footer"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+    </aside>
+
+    <section id="persona" class="padded">
+        <div class="container fade-in">
+            <h2>Mi persona</h2>
+            <p>Soy una persona curiosa y constante. Me gusta aprender probando, corrigiendo errores y entendiendo cómo funcionan las cosas desde la base, ya sea en programación, matemáticas o diseño web. También disfruto explorar temas más teóricos, como los fractales o ciertas ecuaciones, porque me motiva conectar lo abstracto con lo práctico.</p>
+            <p>Mi enfoque se basa en la persistencia y el aprendizaje continuo, siempre buscando mejorar y ampliar mis conocimientos en diferentes áreas.</p>
+        </div>
+    </section>
+        
+    <section id="inspiraciones" class="padded">
+        <div class="container fade-in">
+            <p class="display-1">Inspiración</p>
+            <p class="texto-importante">La creatividad nace de la curiosidad constante</p>
+        </div>
+    </section>
+
+    <section id="hobbys" class="padded">
+        <div class="container">
+            <h2 class="fade-in">Hobbys</h2>
+            <div class="hobbys-grid">
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('image/carabina.jpeg', 'Una de mis cosas favoritas es el campo de tiro. Me gusta porque es un lugar donde puedo concentrarme, liberar tensiones y al mismo tiempo desafiarme a mejorar cada vez más.')">
+                    <img src="image/carabina.jpeg" alt="Tiro deportivo">
+                    <figcaption>
+                        <h3>Tiro deportivo</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('image/dibujar.jpg', 'Me gusta mucho dibujar porque es una forma de expresar lo que siento y lo que imagino. Cuando tengo un lápiz y un papel, puedo desconectarme de todo y dejar que las ideas fluyan.')">
+                    <img src="image/dibujar.jpg" alt="Dibujar">
+                    <figcaption>
+                        <h3>Dibujar</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('image/viaje.jpg', 'Me gusta nadar porque me hace sentir libre y tranquilo. Cuando estoy en el agua, siento que todo lo demás desaparece y solo me concentro en cada brazada.')">
+                    <img src="image/viaje.jpg" alt="Nadar">
+                    <figcaption>
+                        <h3>Nadar</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('image/nadar.jpg', 'Me gusta viajar porque cada lugar tiene algo nuevo que enseñarme. Conocer diferentes lugares, culturas y personas me hace sentir más libre y me llena de experiencias únicas.')">
+                    <img src="image/nadar.jpg" alt="Viajar">
+                    <figcaption>
+                        <h3>Viajar</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        
+        <div id="detalle-hobby" class="detalle-hobby">
+            <div class="detalle-contenido">
+                <img id="detalle-img" src="" alt="Detalle Hobby">
+                <p id="detalle-texto"></p>
+            </div>
+            <div class="text-center">
+                <button onclick="cerrarDetalle()" class="cerrar-btn"><i class="fas fa-times"></i> Cerrar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="favoritas" class="padded">
+        <div class="container">
+            <div class="row">
+                <div class="col col-50 centrado-vertical fade-in">
+                    <h2>Cosas favoritas</h2>
+                    <p>Cada una de ellas tiene algo especial: algunas me relajan, otras me inspiran, y otras simplemente me sacan una sonrisa. No son solo gustos, sino parte de lo que me define y de lo que disfruto en mis momentos libres.</p>
+                    <p>Haz clic en la imagen para descubrir más.</p>
+                </div>
+                <div class="col col-50">
+                    <figure class="imagen-texto">
+                        <img id="fav-img" src="image/lecto.JPEG" alt="Imagen favorita" class="img-fluid">
+                        <figcaption id="fav-caption">
+                            <h3>Siempre creativos</h3>
+                            <p>Me gusta leer y dejar volar la imaginación.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Proyecto Personal</h3>
+                <p>Un espacio donde comparto mis intereses, hobbies y pasiones.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://x.com/"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://github.com/"><i class="fab fa-github"></i> Github</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> ejemplo@correo.com</p>
+                <p><i class="fas fa-phone"></i> +51 999 999 999</p>
+                <p><i class="fas fa-map-marker-alt"></i> Lima, Perú</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 - Mi Proyecto Personal | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Array de objetos con imagen + texto
+        const data = [
+            {
+                src: "image/lecto.JPEG",
+                titulo: "Siempre creativos",
+                texto: "Me gusta leer y dejar volar la imaginación."
+            },
+            {
+                src: "image/Crash-Bandicoot-2.jpg",
+                titulo: "Diversión retro",
+                texto: "Los videojuegos clásicos siempre me animan."
+            },
+            {
+                src: "image/pingpong.jpeg",
+                titulo: "Deporte favorito",
+                texto: "El ping pong me ayuda a relajarme y concentrarme."
+            },
+            {
+                src: "image/caminar.jpeg",
+                titulo: "Conectar con la naturaleza",
+                texto: "Caminar me permite pensar y disfrutar el entorno."
+            }
+        ];
+
+
+        let indice = 0;
+        const img = document.getElementById("fav-img");
+        const caption = document.getElementById("fav-caption");
+
+        // función para mostrar la imagen + texto
+        function mostrarImagen(i) {
+            img.src = data[i].src;
+            caption.querySelector("h3").textContent = data[i].titulo;
+            caption.querySelector("p").textContent = data[i].texto;
+        }
+
+        // ⏳ intervalo de rotación
+        let intervalo = setInterval(() => {
+            indice = (indice + 1) % data.length;
+            mostrarImagen(indice);
+        }, 5000);
+
+        // 👉 click en el figcaption (no en la imagen)
+        caption.addEventListener("click", () => {
+            indice = (indice + 1) % data.length;
+            mostrarImagen(indice);
+        });
+
+        // 🛑 detener rotación cuando el mouse está sobre el caption
+        caption.addEventListener("mouseenter", () => {
+            clearInterval(intervalo);
+        });
+
+        // ▶️ reanudar rotación al salir el mouse
+        caption.addEventListener("mouseleave", () => {
+            intervalo = setInterval(() => {
+                indice = (indice + 1) % data.length;
+                mostrarImagen(indice);
+            }, 5000);
+        });
+
+        // mostrar la primera al cargar
+        mostrarImagen(indice);
+
+        // Sidebar toggle
+        const toggleBtn = document.getElementById("toggleSidebar");
+        const sidebar = document.getElementById("sidebar");
+
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+
+        // Cerrar sidebar al hacer clic fuera de él
+        document.addEventListener("click", (e) => {
+            if (sidebar.classList.contains("active") && 
+                !sidebar.contains(e.target) && 
+                e.target !== toggleBtn) {
+                sidebar.classList.remove("active");
+            }
+        });
+        
+        // Detalle de hobbies
+        function mostrarDetalle(imgSrc, texto) {
+            const panel = document.getElementById("detalle-hobby");
+            const detalleImg = document.getElementById("detalle-img");
+            const detalleTexto = document.getElementById("detalle-texto");
+
+            detalleImg.src = imgSrc;
+            detalleTexto.innerText = texto;
+
+            // Mostrar panel con animación
+            panel.classList.add("activo");
+
+            // Desplazar suavemente hacia la sección del detalle
+            setTimeout(() => {
+                panel.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 150);
+        }
+
+        function cerrarDetalle() {
+            const panel = document.getElementById("detalle-hobby");
+            panel.classList.remove("activo");
+        }
+
+        // Navegación suave
+        document.querySelectorAll("a[href^='#']").forEach(enlace => {
+            enlace.addEventListener("click", e => {
+                e.preventDefault();
+                const id = e.target.getAttribute("href");
+                if (id === "#") return;
+                
+                const destino = document.querySelector(id);
+                if (destino) {
+                    destino.scrollIntoView({ behavior: "smooth", block: "start" });
+                    
+                    // Cerrar sidebar si está abierto
+                    if (sidebar.classList.contains("active")) {
+                        sidebar.classList.remove("active");
+                    }
+                }
+            });
+        });
+
+        // Cambio de imágenes de fondo para inspiraciones
+        const images = [
+            "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('../image/coli.jpg')",
+            "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('../image/conts.jpg')",
+            "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('../image/azul.jpg')"
+        ];
+
+        let index = 0;
+        const inspiraciones = document.getElementById("inspiraciones");
+
+        setInterval(() => {
+            index = (index + 1) % images.length;
+            inspiraciones.style.backgroundImage = images[index];
+        }, 5000);
+
+        // Animación de elementos al hacer scroll
+        const elementosFade = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elementosFade.forEach(el => observer.observe(el));
+        
+        // Efecto de reducción del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.background = 'rgba(0, 64, 48, 0.95)';
+            } else {
+                header.style.padding = '';
+                header.style.background = '';
+            }
+        });
+
+
+
+
+    </script>
+</body>
