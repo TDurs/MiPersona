@@ -1,0 +1,28 @@
+
+<div class="documentos-grid">
+    {% for doc in page_obj %}
+        <div class="documento-card">
+            <h3>{{ doc.titulo }}</h3>
+            <iframe src="{{ doc.pdf.url }}" type="application/pdf" class="pdf-viewer"></iframe>
+            <p class="universidad">{{ doc.universidad.nombre }}</p>
+            <p class="fecha">{{ doc.fecha_subida|date:"d M Y H:i" }}</p>
+        </div>
+    {% empty %}
+        <p>No hay documentos disponibles.</p>
+    {% endfor %}
+</div>
+
+
+
+<!-- Paginación -->
+<div class="paginacion">
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="flecha">⬅</a>
+    {% endif %}
+    
+    <span>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+    
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="flecha">➡</a>
+    {% endif %}
+</div>

@@ -1,0 +1,513 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Mi Proyecto Personal</title>
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="container" id="header-content">
+            <div id="logo">
+                <h1>Mi Proyecto</h1>
+            </div>
+            <ul class="menu menu-main">
+                <li><a href="#persona">Mi persona</a></li>
+                <li><a href="#inspiraciones">Inspiraciones</a></li>
+                <li><a href="#hobbys">Hobbys</a></li>
+                <li><a href="#favoritas">Favoritas</a></li>
+                <li><a href="#main-footer">Contacto</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="caratula" class="padded">
+        <div class="container">
+            <p class="display-1">Universidad <br>Nacional de San Marcos</p>
+            <p class="texto-importante">Bienvenido a mi espacio personal</p>
+            <a href="#persona" class="btn">Conóceme más</a>
+        </div>
+    </section>
+
+    <!-- Botón flotante para abrir sidebar -->
+    <button id="toggleSidebar">☰</button>
+
+    <!-- Sidebar lateral derecho -->
+    <aside id="sidebar">
+        <ul>
+            <li><a href="#persona">≡ Mi Persona</a></li>
+            <li><a href="#inspiraciones">💡 Inspiraciones</a></li>
+            <li><a href="#hobbys">🎮 Hobbys</a></li>
+            <li><a href="#favoritas">❤️ Favoritas</a></li>
+            <li><a href="#" id="openDocumentos">📄 Documentos</a></li>
+            <li><a href="#" id="abrirContacto">✉️ Contacto</a></li>
+        </ul>
+    </aside>
+
+    <section id="persona" class="padded">
+        <div class="container fade-in">
+            <h2>Mi persona</h2>
+            <p>Soy una persona curiosa y constante. Me gusta aprender probando, corrigiendo errores y entendiendo cómo funcionan las cosas desde la base, ya sea en programación, matemáticas o diseño web. También disfruto explorar temas más teóricos, como los fractales o ciertas ecuaciones, porque me motiva conectar lo abstracto con lo práctico.</p>
+            <p>Mi enfoque se basa en la persistencia y el aprendizaje continuo, siempre buscando mejorar y ampliar mis conocimientos en diferentes áreas.</p>
+        </div>
+    </section>
+        
+    
+    <section id="inspiraciones" class="padded">
+        <div class="container fade-in">
+            <p class="display-1">Inspiración</p>
+            <p class="texto-importante">La creatividad nace de la curiosidad constante</p>
+        </div>
+    </section>
+
+    <section id="hobbys" class="padded">
+        <div class="container">
+            <h2 class="fade-in">Hobbys</h2>
+            <div class="hobbys-grid">
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('{% static 'image/carabina.jpeg' %}', 'Una de mis cosas favoritas es el campo de tiro. Me gusta porque es un lugar donde puedo concentrarme, liberar tensiones y al mismo tiempo desafiarme a mejorar cada vez más.')">
+                    <img src="{% static 'image/carabina.jpeg' %}" alt="Tiro deportivo">
+                    <figcaption>
+                        <h3>Tiro deportivo</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('{% static 'image/dibujar.jpg' %}' , 'Me gusta mucho dibujar porque es una forma de expresar lo que siento y lo que imagino. Cuando tengo un lápiz y un papel, puedo desconectarme de todo y dejar que las ideas fluyan.')">
+                    <img src="{% static 'image/dibujar.jpg' %}" alt="Dibujar">
+                    <figcaption>
+                        <h3>Dibujar</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('{% static '/image/viaje.jpg'%}', 'Me gusta viajar porque cada lugar tiene algo nuevo que enseñarme. Conocer diferentes lugares, culturas y personas me hace sentir más libre y me llena de experiencias únicas.')">
+                    <img src="{% static 'image/viaje.jpg' %}" alt="Viajar">
+                    <figcaption>
+                        <h3>Viajar</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+
+                <figure class="imagen-texto" onclick="mostrarDetalle('{% static '/image/nadar.jpg'%}', 'Me gusta nadar porque me hace sentir libre y tranquilo. Cuando estoy en el agua, siento que todo lo demás desaparece y solo me concentro en cada brazada.')">
+                    <img src="{% static 'image/nadar.jpg' %}" alt="Nadar">
+                    <figcaption>
+                        <h3>Nadar</h3>
+                        <p>Click para más info</p>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        
+        <div id="detalle-hobby" class="detalle-hobby">
+            <div class="detalle-contenido">
+                <img id="detalle-img" src="" alt="Detalle Hobby">
+                <p id="detalle-texto"></p>
+            </div>
+            <div class="text-center">
+                <button onclick="cerrarDetalle()" class="cerrar-btn">✕ Cerrar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="favoritas" class="padded">
+        <div class="container">
+            <div class="row">
+                <div class="col col-50 centrado-vertical fade-in">
+                    <h2>Cosas favoritas</h2>
+                    <p>Cada una de ellas tiene algo especial: algunas me relajan, otras me inspiran, y otras simplemente me sacan una sonrisa. No son solo gustos, sino parte de lo que me define y de lo que disfruto en mis momentos libres.</p>
+                    <p>Haz clic en la imagen para descubrir más.</p>
+                </div>
+                <div class="col col-50">
+                    <figure class="imagen-texto">
+                        <img id="fav-img" src="{% static 'image/lecto.JPEG' %}" alt="Imagen favorita" class="img-fluid">
+                        <figcaption id="fav-caption">
+                            <h3>Siempre creativos</h3>
+                            <p>Me gusta leer y dejar volar la imaginación.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="main-footer">
+        <div class="container footer-content">
+            <div class="footer-section">
+                <h3>Proyecto Personal</h3>
+                <p>Un espacio donde comparto mis intereses, hobbies y pasiones.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/TDurs/MiPersona" target="_blank">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+                        alt="GitHub" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Enlaces útiles</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/">📘 Facebook</a></li>
+                    <li><a href="https://x.com/">🐦 Twitter</a></li>
+                    <li><a href="https://www.instagram.com/">📷 Instagram</a></li>
+                    <li><a href="#" id="abrirGithub">💻 GitHub</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📧 ejemplo@correo.com</p>
+                <p>📞 +51 999 999 999</p>
+                <p>📍 Lima, Perú</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 - Mi Proyecto Personal | Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <div id="documentosModal" class="modal">
+        <div class="modal-content">
+            <button class="closeModal">×</button>
+            <div id="documentosContainer">
+                <!-- Aquí se inyectarán los documentos con AJAX -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Contactos -->
+    <div id="modalContactos" class="modal">
+        <div class="modal-content">
+            <button class="closeModal" id="cerrarContactos">×</button>
+            <h2>Contáctanos</h2>
+            <form id="formContactos" method="POST">
+            {% csrf_token %}
+            <label>Nombre:</label>
+            <input type="text" name="nombre" required>
+
+            <label>Email:</label>
+            <input type="email" name="gmail" required>
+
+            <label>Interés:</label>
+            <textarea name="interes" required></textarea>
+
+            <button type="submit">Enviar</button>
+            </form>
+            <p id="mensajeContactos" style="margin-top:1rem; display:none;"></p>
+        </div>
+    </div>
+
+   <!-- Modal GitHub -->
+    <div id="modalGithub" class="modal-github">
+        <div class="modal-github-content">
+            <button id="cerrarGithub" class="cerrar-github">×</button>
+            <h2>Mis Repositorios en GitHub</h2>
+            <ul id="reposList"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Array de objetos con imagen + texto
+        const data = [
+            {
+                src: "{% static 'image/lecto.JPEG' %}",
+                titulo: "Siempre creativos",
+                texto: "Me gusta leer y dejar volar la imaginación."
+            },
+            {
+                src: "{% static 'image/Crash-Bandicoot-2.jpg' %}",
+                titulo: "Diversión retro",
+                texto: "Los videojuegos clásicos siempre me animan."
+            },
+            {
+                src: "{% static 'image/pingpong.jpeg' %}",
+                titulo: "Deporte favorito",
+                texto: "El ping pong me ayuda a relajarme y concentrarme."
+            },
+            {
+                src: "{% static 'image/caminar.jpeg' %}",
+                titulo: "Conectar con la naturaleza",
+                texto: "Caminar me permite pensar y disfrutar el entorno."
+            }
+        ];
+
+        let indice = 0;
+        const img = document.getElementById("fav-img");
+        const caption = document.getElementById("fav-caption");
+
+        // función para mostrar la imagen + texto
+        function mostrarImagen(i) {
+            img.src = data[i].src;
+            caption.querySelector("h3").textContent = data[i].titulo;
+            caption.querySelector("p").textContent = data[i].texto;
+        }
+        
+        // intervalo de rotación
+        let intervalo = setInterval(() => {
+            indice = (indice + 1) % data.length;
+            mostrarImagen(indice);
+        }, 5000);
+
+        // click en el figcaption (no en la imagen)
+        caption.addEventListener("click", () => {
+            indice = (indice + 1) % data.length;
+            mostrarImagen(indice);
+        });
+
+        // detener rotación cuando el mouse está sobre el caption
+        caption.addEventListener("mouseenter", () => {
+            clearInterval(intervalo);
+        });
+
+        // reanudar rotación al salir el mouse
+        caption.addEventListener("mouseleave", () => {
+            intervalo = setInterval(() => {
+                indice = (indice + 1) % data.length;
+                mostrarImagen(indice);
+            }, 5000);
+        });
+
+        // mostrar la primera al cargar
+        mostrarImagen(indice);
+
+        // Sidebar toggle
+        const toggleBtn = document.getElementById("toggleSidebar");
+        const sidebar = document.getElementById("sidebar");
+
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+        });
+
+        // Cerrar sidebar al hacer clic fuera de él
+        document.addEventListener("click", (e) => {
+            if (sidebar.classList.contains("active") && 
+                !sidebar.contains(e.target) && 
+                e.target !== toggleBtn) {
+                sidebar.classList.remove("active");
+            }
+        });
+        
+        // Detalle de hobbies
+        function mostrarDetalle(imgSrc, texto) {
+            const panel = document.getElementById("detalle-hobby");
+            const detalleImg = document.getElementById("detalle-img");
+            const detalleTexto = document.getElementById("detalle-texto");
+
+            detalleImg.src = imgSrc;
+            detalleTexto.innerText = texto;
+
+            // Mostrar panel con animación
+            panel.classList.add("activo");
+
+            // Desplazar suavemente hacia la sección del detalle
+            setTimeout(() => {
+                panel.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 150);
+        }
+
+        function cerrarDetalle() {
+            const panel = document.getElementById("detalle-hobby");
+            panel.classList.remove("activo");
+        }
+
+        // Navegación suave
+        document.querySelectorAll("a[href^='#']").forEach(enlace => {
+            enlace.addEventListener("click", e => {
+                e.preventDefault();
+                const id = e.target.getAttribute("href");
+                if (id === "#") return;
+                
+                const destino = document.querySelector(id);
+                if (destino) {
+                    destino.scrollIntoView({ behavior: "smooth", block: "start" });
+                    
+                    // Cerrar sidebar si está abierto
+                    if (sidebar.classList.contains("active")) {
+                        sidebar.classList.remove("active");
+                    }
+                }
+            });
+        });
+
+        // Cambio de imágenes de fondo para inspiraciones
+        const images = [
+            "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('{% static 'image/coli.jpg' %}')",
+            "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('{% static 'image/conts.jpg' %}')",
+            "linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('{% static 'image/azul.jpg' %}')"
+        ];
+
+        let index = 0;
+        const inspiraciones = document.getElementById("inspiraciones");
+        setInterval(() => {
+            inspiraciones.classList.add("fade");
+            setTimeout(() => {
+                index = (index + 1) % images.length;
+                inspiraciones.style.backgroundImage = images[index];
+                inspiraciones.classList.remove("fade");
+            }, 700); // igual al tiempo de transición
+        }, 5000);
+
+        // Animación de elementos al hacer scroll
+        const elementosFade = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elementosFade.forEach(el => observer.observe(el));
+        
+        // Efecto de reducción del header al hacer scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100) {
+                header.style.padding = '5px 0';
+                header.style.background = 'rgba(0, 64, 48, 0.95)';
+            } else {
+                header.style.padding = '';
+                header.style.background = '';
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const modal = document.getElementById("documentosModal");
+            const openBtn = document.getElementById("openDocumentos");
+            const closeBtn = document.querySelector(".closeModal");
+            const container = document.getElementById("documentosContainer");
+
+            // Abrir modal y cargar documentos
+            openBtn.addEventListener("click", function(e) {
+                e.preventDefault();
+                modal.style.display = "flex";
+
+                // Cargar la primera página de documentos
+                fetch("{% url 'lista_documentos' %}")
+                    .then(response => response.text())
+                    .then(html => {
+                        container.innerHTML = html;
+                        attachPaginationEvents();
+                    });
+            });
+
+            // Cerrar modal
+            closeBtn.addEventListener("click", function() {
+                modal.style.display = "none";
+            });
+
+            // Función para adjuntar eventos a flechas de paginación
+            function attachPaginationEvents() {
+                container.querySelectorAll(".paginacion a").forEach(link => {
+                    link.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        fetch(this.href)
+                            .then(response => response.text())
+                            .then(html => {
+                                container.innerHTML = html;
+                                attachPaginationEvents();
+                            });
+                    });
+                });
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById("modalContactos");
+            const abrir = document.getElementById("abrirContacto");
+            const cerrar = document.getElementById("cerrarContactos");
+            const form = document.getElementById("formContactos");
+            const mensaje = document.getElementById("mensajeContactos");
+
+            // Abrir modal
+            abrir.addEventListener("click", e => {
+                e.preventDefault();
+                modal.style.display = "flex";
+            });
+
+            // Cerrar modal
+            cerrar.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+            window.addEventListener("click", e => {
+                if (e.target === modal) modal.style.display = "none";
+            });
+
+            // Enviar formulario AJAX
+            form.addEventListener("submit", async e => {
+                e.preventDefault();
+                const formData = new FormData(form);
+
+                const response = await fetch("{% url 'contactanos' %}", {
+                method: "POST",
+                headers: { "X-Requested-With": "XMLHttpRequest" },
+                body: formData
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                mensaje.textContent = "✅ Tu mensaje fue enviado correctamente.";
+                mensaje.style.color = "green";
+                mensaje.style.display = "block";
+                form.reset();
+
+                // Opcional: cerrar automáticamente después de 2s
+                setTimeout(() => { modal.style.display = "none"; }, 2000);
+                } else {
+                mensaje.textContent = "❌ Error al enviar: " + JSON.stringify(data.errors);
+                mensaje.style.color = "red";
+                mensaje.style.display = "block";
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const modalGithub = document.getElementById("modalGithub");
+            const abrirGithub = document.getElementById("abrirGithub");
+            const cerrarGithub = document.getElementById("cerrarGithub");
+            const reposList = document.getElementById("reposList");
+
+            // Abrir modal
+            abrirGithub.addEventListener("click", (e) => {
+                e.preventDefault();
+                modalGithub.style.display = "flex";
+
+                // Solo cargar una vez
+                if (reposList.childElementCount === 0) {
+                fetch("https://api.github.com/users/TDurs/repos")
+                    .then(res => res.json())
+                    .then(data => {
+                    data.forEach(repo => {
+                        const li = document.createElement("li");
+                        li.innerHTML = `
+                        <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                        <br><small>⭐ ${repo.stargazers_count} | 🖥 ${repo.language || "N/A"}</small>
+                        `;
+                        reposList.appendChild(li);
+                    });
+                    });
+                }
+            });
+
+            // Cerrar modal
+            cerrarGithub.addEventListener("click", () => {
+                modalGithub.style.display = "none";
+            });
+
+            // Cerrar al hacer clic fuera del contenido
+            window.addEventListener("click", (e) => {
+                if (e.target === modalGithub) {
+                modalGithub.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

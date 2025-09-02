@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Solicitudes de contacto</title>
+</head>
+<body>
+    <h1>Solicitudes recibidas</h1>
+    <ul>
+        {% for c in contactos %}
+            <li>
+                <strong>{{ c.nombre }}</strong>  
+                ({{ c.gmail }})  
+                - Interés: {{ c.interes }}  
+                - Fecha: {{ c.fecha_solicitud|date:"d/m/Y H:i" }}
+            </li>
+        {% empty %}
+            <li>No hay solicitudes aún.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
